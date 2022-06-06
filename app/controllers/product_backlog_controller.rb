@@ -204,7 +204,7 @@ private
 
   def check_issue_position(issue)
     if issue.is_a?(Issue)
-      if issue.position.nil?
+      if issue.is_pbi? and issue.position.nil?
         issue.reset_positions_in_list
         issue.save!
         issue.reload
